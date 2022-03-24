@@ -22,8 +22,6 @@ let generate = (n) => {
     for (var ii = 0; ii < 15; ii++) {
       string += chars[Math.floor(Math.random() * chars.length)];
     }
-    // All variable sections randomised
-    // let email = string + "@" + string + ".com";
     // More life like emails by choose from a rebuilt list of common domains and providers
     let email =
       string +
@@ -34,7 +32,6 @@ let generate = (n) => {
 
     array.push(email);
   }
-  console.log(array);
   let end = performance.now();
   console.log(
     "Tried generating",
@@ -48,33 +45,18 @@ let generate = (n) => {
   //Doubling the array to make sure I've got 50% more
   const doubledArray = array.concat(array);
   console.log("Doubled the array to: ", doubledArray);
-  // return doubledArray;
-
-  // SHUFFLE
   let shuffledArray = shuffleArray(doubledArray);
   console.log("Shuffled array resulting in: ", shuffledArray);
-  // SORT
-  let start1 = performance.now();
-  let product = [...new Set(shuffledArray)];
-  console.log("Removed duplicates resulting in: ", product);
-  // console.log([...new Set(shuffledArray)]);
-  // return [...new Set(emailsArray)]
-  let end1 = performance.now();
-  console.log("The operation occured on: ", Object.keys(shuffledArray).length) +
-    " items.";
-  console.log("The operation took: ", end1 - start1, " milliseconds");
+  return shuffledArray;
 };
 
-generate(5);
+let sort = (emails) => {
+  let start = performance.now();
+  console.log([...new Set(emails)]);
+  let end = performance.now();
+  console.log("The operation occured on: ", Object.keys(emails).length),
+    " items.";
+  console.log("The operation took: ", end - start, " milliseconds");
+};
 
-// sort = (emails) => {
-//   let start = performance.now();
-//   console.log([...new Set(emails)]);
-//   // return [...new Set(emailsArray)]
-//   let end = performance.now();
-//   console.log("The operation occured on: ", Object.keys(emails).length),
-//     " items.";
-//   console.log("The operation took: ", end - start, " milliseconds");
-// };
-
-// sort(generate);
+sort(generate(50000));
