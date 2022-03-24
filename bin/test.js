@@ -1,5 +1,15 @@
+#!/usr/bin/env node
+
 // To help us time what we are doing.
 const { performance } = require("perf_hooks");
+// Yargs
+const yargs = require("yargs");
+const options = yargs.usage("Usage: -n <name>").option("n", {
+  alias: "name",
+  describe: "Number of dummy emails",
+  type: "number",
+  demandOption: true,
+}).argv;
 
 let shuffleArray = (arrayToShuffle) => {
   for (var i = arrayToShuffle.length - 1; i > 0; i--) {
@@ -23,7 +33,6 @@ let generateFakeEmails = (noOfRecords) => {
     for (var ii = 0; ii < 20; ii++) {
       string += chars[Math.floor(Math.random() * chars.length)];
     }
-    // More life like emails by choose from a rebuilt list of common domains and providers
     let email =
       string +
       "@" +
@@ -53,6 +62,7 @@ let generateFakeEmails = (noOfRecords) => {
 };
 
 let removeDuplicateEmails = (emails) => {
+  console.log("Removing duplicate emails");
   let start = performance.now();
   console.log([...new Set(emails)]);
   let end = performance.now();
@@ -61,4 +71,10 @@ let removeDuplicateEmails = (emails) => {
   console.log("The operation took: ", end - start, " milliseconds");
 };
 
-removeDuplicateEmails(generateFakeEmails(5));
+const test = () => {
+  let dummyEmails = generateFakeEmails(`${options.name}`);
+  removeDuplicateEmails(dummyEmails);
+};
+// removeDuplicateEmails(generateFakeEmails(`${options.name}`));
+
+test();
