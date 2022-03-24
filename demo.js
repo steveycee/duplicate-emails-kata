@@ -1,15 +1,5 @@
-#!/usr/bin/env node
-
 // To help us time what we are doing.
 const { performance } = require("perf_hooks");
-// Yargs
-const yargs = require("yargs");
-const options = yargs.usage("Usage: -n <name>").option("n", {
-  alias: "name",
-  describe: "Number of dummy emails",
-  type: "number",
-  demandOption: true,
-}).argv;
 
 let shuffleArray = (arrayToShuffle) => {
   for (var i = arrayToShuffle.length - 1; i > 0; i--) {
@@ -62,7 +52,6 @@ let generateFakeEmails = (noOfRecords) => {
 };
 
 let removeDuplicateEmails = (emails) => {
-  console.log("Removing duplicate emails");
   let start = performance.now();
   console.log([...new Set(emails)]);
   let end = performance.now();
@@ -71,10 +60,12 @@ let removeDuplicateEmails = (emails) => {
   console.log("The operation took: ", end - start, " milliseconds");
 };
 
-const test = () => {
-  let dummyEmails = generateFakeEmails(`${options.name}`);
-  removeDuplicateEmails(dummyEmails);
-};
-// removeDuplicateEmails(generateFakeEmails(`${options.name}`));
+// Order preserved?
 
-test();
+module.exports.demo = (noOfFakes) => {
+  let fakeEmails = generateFakeEmails(noOfFakes);
+  removeDuplicateEmails(fakeEmails);
+};
+
+// removeDuplicateEmails(generateFakeEmails(50000));
+// letsGo(10);
