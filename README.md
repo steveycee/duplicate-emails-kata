@@ -46,7 +46,7 @@ This function brings it all together and is the function called in the Quickstar
 
 ## What I'd like to have added ⏳
 
-- More automated tests!
+- More automated tests! while there is benchmarking I didn't find the opportunity in good time to add the right amount of automated tests I'd have liked.
 - More configuration options, right now it works on a randomly generated list of emails, I'd have loved to configure the CLI to work against a file like emails.json or something like that.
 - More life like emails, I tried using domains and providers but ultimately the email unique part of the email address isn't very life like.
 - Better performance given it crashes out parsing a certain number of emails.
