@@ -1,6 +1,6 @@
 # Duplicate email removal tool
 
-## Quick start
+## Quick start 🦊
 
 To run function against 100000 randomly generated emails simply type
 
@@ -14,7 +14,7 @@ If you want to ask it to run against a particular number of internally generated
 
 Where `[number]` is the number of random emails you want to generate, keep in mind this number will be doubled in order to make sure we get 50% duplicate emails.
 
-## How it all works
+## How it all works ⚙️
 
 You can no doubt see 4 functions in `demo.js`
 
@@ -36,13 +36,18 @@ Finally we have a function that takes an array from shuffle() (called inside of 
 
 This function brings it all together and is the function called in the Quickstart above.
 
-## Testing
+## Testing 🧪
+
+💻 Tested on Early 2015 MPB 2.7Ghz i5 Dual Core 8GB RAM
 
 - `removeDuplicateEmails()` and `generateFakeEmails()` both make use of `performance.now` to track how long the functions are taking to run. At time of writing the operation to deduplicate 100K email entries was taking roughly 80 to 100 ms
-- Manual testing, spot checked over several runs that the order of the final array is in the same order as the array it had been asked to work on.
+- Manual testing: spot checked over several runs that the order of the final array is in the same order as the array it had been asked to work on.
+- Exploratory testing:
+  -- Crashes out consistently at 4.5 million emails but this includes the generation operation.
 
-## What I'd like to have added
+## What I'd like to have added ⏳
 
-- More automated tests
+- More automated tests!
 - More configuration options, right now it works on a randomly generated list of emails, I'd have loved to configure the CLI to work against a file like emails.json or something like that.
 - More life like emails, I tried using domains and providers but ultimately the email unique part of the email address isn't very life like.
+- Better performance given it crashes out parsing a certain number of emails.
