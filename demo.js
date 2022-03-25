@@ -53,11 +53,13 @@ let generateFakeEmails = (noOfRecords) => {
 
 let removeDuplicateEmails = (emails) => {
   let start = performance.now();
-  console.log([...new Set(emails)]);
+  let deduplicated = [...new Set(emails)];
+  // console.log([...new Set(emails)]);
   let end = performance.now();
   console.log("The operation occured on: ", Object.keys(emails).length),
     "items.";
   console.log("The operation took: ", end - start, " milliseconds");
+  return deduplicated;
 };
 
 // Order preserved?

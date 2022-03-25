@@ -13,3 +13,25 @@ If you want to ask it to run against a particular number of internally generated
 `npm run demo-cli [number]`
 
 Where `[number]` is the number of random emails you want to generate, keep in mind this number will be doubled in order to make sure we get 50% duplicate emails.
+
+## How it all works
+
+You can no doubt see 4 functions in `demo.js`
+
+`generateFakeEmails()`
+
+Not particulary part of the excersise itself but generating 100K emails felt like a particularly manual task. While I appreciate there are tools and npm packages out there that might have helped with this I thought it better to demonstrate my ability to put something like this together.
+
+Essentially the function generate a fake string by connecting together a randomised choice from 3 different arrays to put together an seemingly life like email address (sort of).
+
+`shuffle()`
+
+One thing `generateFakeEmails()` does in order to make sure 50% of the emails are duplicates is it concat's the array it generates to itself. This means if we generated 5 emails then we would end up with 10 with the first 5 being in the same order as the last 5. Thus we need a way to mix things up a bit and thats what shuffle does. The final function works on the result of shuffle.
+
+`removeDuplicateEmails()`
+
+Finally we have a function that takes an array from shuffle() (called inside of generateFakeEmails()) and removes all the duplicates. We can modify this in code to take in a file if needs be.
+
+`demo()`
+
+This function brings it all together and is the function called in the Quickstart above.

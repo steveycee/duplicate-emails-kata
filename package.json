@@ -6,7 +6,8 @@
   "scripts": {
     "demo": "node -e 'require(\"./demo\").demo(50000)'",
     "demo-cli": "node cli.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo-test": "node steve/function.js",
+    "test": "jest"
   },
   "author": "Steven Chapman",
   "license": "ISC",
