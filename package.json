@@ -2,12 +2,10 @@
   "name": "automattic-code-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "demo.js",
   "scripts": {
-    "demo": "node -e 'require(\"./demo\").demo(50000)'",
-    "demo-cli": "node cli.js",
-    "demo-test": "node steve/function.js",
-    "test": "jest"
+    "demo": "node demo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Steven Chapman",
   "license": "ISC",

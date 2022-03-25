@@ -1,5 +1,9 @@
 // To help us time what we are doing.
 const { performance } = require("perf_hooks");
+// const { demo } = require("./demo");
+
+// CLI
+const myArg = process.argv;
 
 let shuffleArray = (arrayToShuffle) => {
   for (var i = arrayToShuffle.length - 1; i > 0; i--) {
@@ -52,16 +56,20 @@ let generateFakeEmails = (noOfRecords) => {
 };
 
 let removeDuplicateEmails = (emails) => {
-  let deduplicated = [...new Set(emails)];
+  let finalDeduplicatedList = [...new Set(emails)];
   console.log("The operation occured on: ", Object.keys(emails).length),
     "items.";
-  return deduplicated;
+  console.log("Final list with no duplicates", finalDeduplicatedList);
+  return finalDeduplicatedList;
 };
 
-module.exports.demo = (n) => {
+demo = (params) => {
   let start = performance.now();
-  let fakeEmails = generateFakeEmails(n);
+  const num = parseInt(params[2], 10);
+  let fakeEmails = generateFakeEmails(num);
   removeDuplicateEmails(fakeEmails);
   let end = performance.now();
   console.log("The whole operation took: ", end - start, " milliseconds");
 };
+
+demo(myArg);
