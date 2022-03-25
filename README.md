@@ -35,3 +35,14 @@ Finally we have a function that takes an array from shuffle() (called inside of 
 `demo()`
 
 This function brings it all together and is the function called in the Quickstart above.
+
+## Testing
+
+- `removeDuplicateEmails()` and `generateFakeEmails()` both make use of `performance.now` to track how long the functions are taking to run. At time of writing the operation to deduplicate 100K email entries was taking roughly 80 to 100 ms
+- Manual testing, spot checked over several runs that the order of the final array is in the same order as the array it had been asked to work on.
+
+## What I'd like to have added
+
+- More automated tests
+- More configuration options, right now it works on a randomly generated list of emails, I'd have loved to configure the CLI to work against a file like emails.json or something like that.
+- More life like emails, I tried using domains and providers but ultimately the email unique part of the email address isn't very life like.
