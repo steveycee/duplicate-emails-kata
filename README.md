@@ -2,11 +2,13 @@
 
 ## Quick start 🦊
 
-To run function against randomly generated emails simply type
+To run function against randomly generated emails simply clone, open this repo in the IDE or text editor of your choice, open a terminal at the location of the files and type:
 
-`npm run demo [number]`
+`npm run demo 50000`
 
-Where `[number]` is the number of random emails you want to generate, keep in mind this number will be doubled in order to make sure we get 50% duplicate emails.
+This will create 50K email addresses, duplicate that to 100K, shuffle, then remove all the duplicates.
+
+You can run it against as many as you like, simply change 50000 to whatever number you'd like to test.
 
 ## How it all works ⚙️
 
