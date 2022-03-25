@@ -52,22 +52,16 @@ let generateFakeEmails = (noOfRecords) => {
 };
 
 let removeDuplicateEmails = (emails) => {
-  let start = performance.now();
   let deduplicated = [...new Set(emails)];
-  // console.log([...new Set(emails)]);
-  let end = performance.now();
   console.log("The operation occured on: ", Object.keys(emails).length),
     "items.";
-  console.log("The operation took: ", end - start, " milliseconds");
   return deduplicated;
 };
 
-// Order preserved?
-
-module.exports.demo = (noOfFakes) => {
-  let fakeEmails = generateFakeEmails(noOfFakes);
+module.exports.demo = (n) => {
+  let start = performance.now();
+  let fakeEmails = generateFakeEmails(n);
   removeDuplicateEmails(fakeEmails);
+  let end = performance.now();
+  console.log("The whole operation took: ", end - start, " milliseconds");
 };
-
-// removeDuplicateEmails(generateFakeEmails(50000));
-// letsGo(10);

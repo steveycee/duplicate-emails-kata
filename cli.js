@@ -56,23 +56,20 @@ let generateFakeEmails = (noOfRecords) => {
 };
 
 let removeDuplicateEmails = (emails) => {
-  let start = performance.now();
-  // console.log([...new Set(emails)]);
   let finalDeduplicatedList = [...new Set(emails)];
-  console.log("Final array: ", finalDeduplicatedList);
-  let end = performance.now();
   console.log("The operation occured on: ", Object.keys(emails).length),
     "items.";
-  console.log("The operation took: ", end - start, " milliseconds");
+  console.log("Final list with no duplicates", finalDeduplicatedList);
   return finalDeduplicatedList;
 };
 
-// Order preserved?
-
 demo = (params) => {
+  let start = performance.now();
   const num = parseInt(params[2], 10);
   let fakeEmails = generateFakeEmails(num);
   removeDuplicateEmails(fakeEmails);
+  let end = performance.now();
+  console.log("The whole operation took: ", end - start, " milliseconds");
 };
 
 demo(myArg);
